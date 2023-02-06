@@ -32,11 +32,6 @@ Created Date: 02/06/2023
 
 `npm run dev`
  
----
-
-## Coding style tests
-
-- W3 Complience check - Passed (Tested on this [site](https://validator.w3.org/))
 
 ---
 
