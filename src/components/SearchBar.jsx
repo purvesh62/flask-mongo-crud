@@ -25,7 +25,7 @@ const SearchBar = () => {
     if (searchValue.length > 0) {
       for (let i = 0; i < cards.length; i++) {
         const childText = cards[i].childNodes[1].childNodes[0].innerText;
-        if (!childText.toLowerCase().includes(searchValue)) {
+        if (!childText.toLowerCase().includes(searchValue.toLowerCase())) {
           cards[i].style.display = "none";
         }
       }
