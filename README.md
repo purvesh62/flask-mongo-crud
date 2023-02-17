@@ -4,11 +4,11 @@
 
 Created Date: 02/17/2023
 
-| Title                    | Links                                                                  |
-|:-------------------------|:-----------------------------------------------------------------------|
-| Git repository           | [Repository](https://git.cs.dal.ca/rathod/csci-5709/-/tree/tutorial_3) |
-| Branch name              | `tutorial_3`                                                           |
-| Deployed Application URL | [Click here](https://resilient-pie-87878f.netlify.app/)                |
+| Title                    | Links                                                                 |
+|:-------------------------|:----------------------------------------------------------------------|
+| Git repository           | [Repository](https://git.cs.dal.ca/rathod/csci-5709/-/tree/tutorial3) |
+| Branch name              | `tutorial3`                                                           |
+| Deployed Application URL | [Click here](https://resilient-pie-87878f.netlify.app/)               |
 
 ---
 
@@ -27,7 +27,7 @@ Created Date: 02/17/2023
 
 `cd csci-5709`
 
-`git checkout -b tutorial_3`
+`git checkout -b tutorial3`
 
 `npm install`
 
