@@ -1,16 +1,16 @@
 import './App.css'
 import SignUp from "./components/SignUp.jsx";
 import Profile from "./components/Profile";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {HashRouter, Routes, Route} from "react-router-dom";
 
 function App() {
 
-    return (<BrowserRouter>
+    return (<HashRouter>
         <Routes>
-            <Route index element={<SignUp/>}/>
+            <Route index path="/" element={<SignUp/>}/>
             <Route path="/profile" element={<Profile/>}/>
         </Routes>
-    </BrowserRouter>)
+    </HashRouter>)
 }
 
 export default App

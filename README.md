@@ -8,7 +8,7 @@ Created Date: 02/06/2023
 |:-------------------------|:-----------------------------------------------------------------------|
 | Git repository           | [Repository](https://git.cs.dal.ca/rathod/csci-5709/-/tree/tutorial_3) |
 | Branch name              | `tutorial_3`                                                           |
-| Deployed Application URL | [Click here](https://resplendent-kitten-0f8200.netlify.app/)           |
+| Deployed Application URL | [Click here](https://mellow-torrone-2c4525.netlify.app/)               |
 
 ---
 
