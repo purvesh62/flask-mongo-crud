@@ -2,13 +2,13 @@
 
 ## Author - [Purvesh Rathod](mailto:purvesh.r@dal.ca) (B00903204)
 
-Created Date: 02/06/2023
+Created Date: 02/17/2023
 
 | Title                    | Links                                                                  |
 |:-------------------------|:-----------------------------------------------------------------------|
 | Git repository           | [Repository](https://git.cs.dal.ca/rathod/csci-5709/-/tree/tutorial_3) |
 | Branch name              | `tutorial_3`                                                           |
-| Deployed Application URL | [Click here](https://mellow-torrone-2c4525.netlify.app/)               |
+| Deployed Application URL | [Click here](https://resilient-pie-87878f.netlify.app/)                |
 
 ---
 
@@ -27,7 +27,7 @@ Created Date: 02/06/2023
 
 `cd csci-5709`
 
-`git checkout -b assignment_1`
+`git checkout -b tutorial_3`
 
 `npm install`
 
@@ -43,8 +43,6 @@ Created Date: 02/06/2023
    application.
 3. [MUI SignUp](https://github.com/mui/material-ui/tree/v5.11.9/docs/data/material/getting-started/templates/sign-up):
    Form implementation
-4. [Cards MUI](https://mui.com/material-ui/react-card/): To create cards using MUI.
-3. [Youtube URL](https://www.youtube.com/watch?v=bjVUqvcCnxM): To use Netlify to deploy my code.
 
 ---
 
@@ -53,4 +51,5 @@ Created Date: 02/06/2023
 - [React getting started](https://reactjs.org/)
 - [MUI SignUp form](https://github.com/mui/material-ui/tree/v5.11.9/docs/data/material/getting-started/templates/sign-up)
 - [Vite.js to create react app](https://vitejs.dev/guide/)
+- [unDraw illustration](https://undraw.co/)
 - [Netlify - deploy react application on netlify](https://www.netlify.com/)
