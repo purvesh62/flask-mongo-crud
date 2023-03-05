@@ -1,0 +1,46 @@
+@import '@fontsource/roboto/300.css';
+@import '@fontsource/roboto/400.css';
+
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.cardContainer {
+  padding: 5%;
+}
+
+.search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 40px;
+}
+
+.search>button {
+  background-color: #7f8286;
+}
+
+.searchTerm {
+  width: 40%;
+  border: 3px solid #7f8286;
+  border-right: none;
+  padding: 6px;
+  padding-left: 20px;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+  color: black;
+}
+
+.searchButton {
+  background: #7f8286;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px 0 0 10px;
+}
+
+.search-icon {
+  padding-right: 5px;
+}
