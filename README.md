@@ -8,7 +8,7 @@ Created Date: 03/15/2023
 | :----------------------- | :-------------------------------------------------------------------- |
 | Git repository           | [Repository](https://git.cs.dal.ca/rathod/csci-5709/-/tree/tutorial5) |
 | Branch name              | `tutorial5`                                                           |
-| Deployed Application URL | [Click here](#)                                                       |
+| Deployed Application URL | [Click here](https://flask-tutorial5-dbh0.onrender.com)               |
 
 ---
 
@@ -60,26 +60,26 @@ Run application command
 
     Endpoint: **/users**
 
-    > `curl --location --request GET 'http://127.0.0.1:5000/users'`
+    > `curl --location --request GET 'https://flask-tutorial5-dbh0.onrender.com/users'`
 
 2. GET USER: 
 
     Endpoint: **/user/:id**
 
-    > `curl --location --request GET 'http://127.0.0.1:5000/user/d7611e7f-8'`
+    > `curl --location --request GET 'https://flask-tutorial5-dbh0.onrender.com/user/d7611e7f-8'`
 
 
 3. POST USER:
 
     Endpoint:  **/add**
 
-    > `curl --location --request POST 'http://127.0.0.1:5000/add' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.ca", "firstName": "XYZ" }'`
+    > `curl --location --request POST 'https://flask-tutorial5-dbh0.onrender.com/add' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.ca", "firstName": "XYZ" }'`
 
 4. UPDATE USER: 
 
     Endpoint: **/update:id**
 
-    > `curl --location --request PUT 'http://127.0.0.1:5000/update/a7d1ef62-7' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.com", "firstName": "XYZABC" }'`
+    > `curl --location --request PUT 'https://flask-tutorial5-dbh0.onrender.com/update/a7d1ef62-7' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.com", "firstName": "XYZABC" }'`
 
 ---
 
