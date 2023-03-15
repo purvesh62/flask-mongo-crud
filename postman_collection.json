@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "a3311f05-434d-4ab1-aaea-5b1942b4a122",
+		"name": "5709",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11403971"
+	},
+	"item": [
+		{
+			"name": "T5 get users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://flask-tutorial5-dbh0.onrender.com/users",
+					"protocol": "https",
+					"host": [
+						"flask-tutorial5-dbh0",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "T5 get user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://flask-tutorial5-dbh0.onrender.com/user/353316e2-6",
+					"protocol": "https",
+					"host": [
+						"flask-tutorial5-dbh0",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"user",
+						"353316e2-6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "T5 add user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"xyz@xyz.ca\",\n    \"firstName\": \"XYZ\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://flask-tutorial5-dbh0.onrender.com/add",
+					"protocol": "https",
+					"host": [
+						"flask-tutorial5-dbh0",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "T5 update user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"xyz@xyz.com\",\n    \"firstName\": \"XYZABC\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://flask-tutorial5-dbh0.onrender.com/update/770549db-8",
+					"protocol": "https",
+					"host": [
+						"flask-tutorial5-dbh0",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"update",
+						"770549db-8"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
