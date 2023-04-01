@@ -2,12 +2,12 @@
 
 ## Author - [Purvesh Rathod](mailto:purvesh.r@dal.ca) (B00903204)
 
-Created Date: 03/15/2023
+Created Date: 04/01/2023
 
 | Title                    | Links                                                                 |
-| :----------------------- | :-------------------------------------------------------------------- |
-| Git repository           | [Repository](https://git.cs.dal.ca/rathod/csci-5709/-/tree/tutorial5) |
-| Branch name              | `tutorial5`                                                           |
+|:-------------------------|:----------------------------------------------------------------------|
+| Git repository           | [Repository](https://git.cs.dal.ca/rathod/csci-5709/-/tree/tutorial7) |
+| Branch name              | `tutorial7`                                                           |
 | Deployed Application URL | [Click here](https://flask-tutorial5-dbh0.onrender.com)               |
 
 ---
@@ -17,7 +17,6 @@ Created Date: 03/15/2023
 - [Flask](https://flask.palletsprojects.com/en/2.2.x/): Built the REST API using Flask.
 - [Postman](https://www.postman.com/): To test the APIs.
 - [Render](https://render.com/): Deployed application on Render.
-
 
 ---
 
@@ -31,21 +30,6 @@ Install requirements
 
 > `pip install -r requirements.txt`
 
-Create database locally by executing the commands given below
-
-> `flask shell`
-
-Initialize SQLite database and fill the dummy entries
-
-```
-db.create_all()
-user1 = User('user1', 'user1@gmail.com')
-user2 = User('user2', 'user2@gmail.com')
-db.session.add_all([user1, user2])
-db.session.commit()
-```
-
-
 Run application command
 
 > `python app.py`
@@ -53,33 +37,39 @@ Run application command
 
 ---
 
-
 ## API Endpoints
 
-1. GET USERS: 
+1. GET USERS:
 
-    Endpoint: **/users**
+   Endpoint: **/users**
 
-    > `curl --location --request GET 'https://flask-tutorial5-dbh0.onrender.com/users'`
+   > `curl --location --request GET 'https://flask-tutorial5-dbh0.onrender.com/users'`
 
-2. GET USER: 
+2. GET USER:
 
-    Endpoint: **/user/:id**
+   Endpoint: **/user/:id**
 
-    > `curl --location --request GET 'https://flask-tutorial5-dbh0.onrender.com/user/d7611e7f-8'`
+   > `curl --location --request GET 'https://flask-tutorial5-dbh0.onrender.com/user/d7611e7f-8'`
 
 
 3. POST USER:
 
-    Endpoint:  **/add**
+   Endpoint:  **/add**
 
-    > `curl --location --request POST 'https://flask-tutorial5-dbh0.onrender.com/add' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.ca", "firstName": "XYZ" }'`
+   > `curl --location --request POST 'https://flask-tutorial5-dbh0.onrender.com/add' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.ca", "firstName": "XYZ" }'`
 
-4. UPDATE USER: 
+4. UPDATE USER:
 
-    Endpoint: **/update:id**
+   Endpoint: **/update:id**
 
-    > `curl --location --request PUT 'https://flask-tutorial5-dbh0.onrender.com/update/a7d1ef62-7' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.com", "firstName": "XYZABC" }'`
+   > `curl --location --request PUT 'https://flask-tutorial5-dbh0.onrender.com/update/a7d1ef62-7' --header 'Content-Type: application/json' --data-raw '{ "email": "xyz@xyz.com", "firstName": "XYZABC" }'`
+
+
+5. DELETE USER:
+
+   Endpoint: **/delete:id**
+
+   > `curl --location --request DELETE 'http://127.0.0.1:5000/delete/64288228e4610e3a8d566c93'`
 
 ---
 

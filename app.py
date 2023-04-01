@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, jsonify
-from flask_sqlalchemy import SQLAlchemy
+from pymongo import MongoClient
 import os
 import json
 import uuid
+from bson.json_util import dumps
+from bson.objectid import ObjectId
+
 app = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -10,24 +13,51 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 # App configurations
 app.config['SECRET_KEY'] = 'app-secret-key'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + \
-    os.path.join(basedir, 'db.sqlite')
-
-db = SQLAlchemy(app)
 
 
-class User(db.Model):
-    id = db.Column(db.String(10), primary_key=True)
-    firstName = db.Column(db.String(25))
-    email = db.Column(db.String(25))
+class MongoDB:
 
-    def __init__(self, firstName, email):
-        self.id = str(uuid.uuid4())[:10]
-        self.firstName = firstName
-        self.email = email
+    def __init__(self):
+        self.user = "tutorial7"
+        self.password = "gKhZZOYEZanCBFdv"
+        self.collection = "tutorial7"
+        self.client = MongoClient(f"mongodb+srv://{self.user}:{self.password}@cluster0.usizazp.mongodb.net/")
+        cursor = self.client['csci5709']
+        self.collection = cursor[self.collection]
 
-    def to_dict(self):
-        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
+    def read_documents(self):
+        documents = self.collection.find()
+        records = []
+        for data in documents:
+            records.append(json.loads(dumps(data)))
+        return records
+
+    def read_document(self, id):
+        document = None
+        try:
+            document = self.collection.find_one({'_id': ObjectId(id)})
+        except Exception as e:
+            print(e)
+        if document:
+            return json.loads(dumps(document))
+        else:
+            return None
+
+    def write_document(self, data):
+        response = self.collection.insert_one(data)
+
+    def update_document(self, id, data):
+        response = self.collection.update_one({
+            "_id": ObjectId(id)
+        }, {"$set": data})
+        output = {'Status': 'Successfully Updated' if response.modified_count > 0 else "Nothing was updated."}
+        return output
+
+    def delete_document(self, id):
+        response = self.collection.delete_one({
+            '_id': ObjectId(id)
+        })
+        return True if response.deleted_count > 0 else False
 
 
 @app.route('/users', methods=['GET'])
@@ -40,12 +70,10 @@ def get_users():
         "success": False,
     }
     try:
-        users = User.query.all()
-        users_list = [user.to_dict() for user in users]
-        # Create response
+        users = MongoDB().read_documents()
         response['message'] = "Users retrieved"
         response['success'] = True
-        response['users'] = users_list
+        response['users'] = users
         return jsonify(response), 200
     except Exception as e:
         print(e)
@@ -78,10 +106,14 @@ def get_user(id):
         'message': 'Error while fetching the data'
     }
     try:
-        user = User.query.filter_by(id=id).first()
+        user = MongoDB().read_document(id)
         if user:
             response['success'] = True
-            response['user'] = user.to_dict()
+            response['user'] = {
+                "id": user['_id']['$oid'],
+                "firstName": user['firstName'],
+                "email": user['email']
+            }
             del response['message']
             return jsonify(response), 200
         else:
@@ -108,10 +140,10 @@ def add_user():
     try:
         data = request.get_json()
         if data.get('firstName') and data.get('email'):
-            user = User(data.get('firstName'), data.get('email'))
-            db.session.add(user)
-            db.session.commit()
-
+            MongoDB().write_document({
+                "email": data.get("email"),
+                "firstName": data.get("firstName")
+            })
             # Send response
             response['success'] = True
             response['message'] = 'User added'
@@ -139,22 +171,35 @@ def update_user(id):
     }
     try:
         data = request.get_json()
-        user = User.query.filter_by(id=id).first()
-        if user:
-            if data.get('firstName'):
-                user.firstName = data.get('firstName')
-            if data.get('email'):
-                user.email = data.get('email')
-            db.session.commit()
-        else:
-            response['message'] = 'User not found'
-            return jsonify(response), 404
-        # Send response
+        MongoDB().update_document(id, data)
         response['success'] = True
         response['message'] = 'User updated'
         return jsonify(response), 200
     except Exception as e:
         return jsonify(response), 400
+
+
+@app.route('/delete/<id>', methods=['DELETE'])
+def delete_user(id):
+    response = {
+        'message': 'Error while performing the request.',
+        'success': False
+    }
+    status = 400
+    try:
+        if id:
+            if MongoDB().delete_document(id):
+                response['message'] = "User deleted"
+                response['success'] = True
+                return response, 200
+
+        response['message'] = "User id in valid or not found"
+        status = 404
+
+    except Exception as e:
+        print(e)
+
+    return response, status
 
 
 if __name__ == "__main__":
